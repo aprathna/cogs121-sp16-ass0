@@ -1,4 +1,11 @@
+var mongoose = require('mongoose');
+
 exports.view = function(req, res) {
-    var data = {data: []};
-    res.render("index", data);
+    mongoose.model('tit').find(function(err,data){
+	res.render("index",{ 
+		"data": data
+	});
+	});
 }
+
+
